@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Pago con tarjeta - CaféNova</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>☕ CaféNova SmartFlow</h1>
+        <p>Pago seguro - Modo demostración</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+    </nav>
+
+    <main>
+        <section class="finalizar-compra">
+
+            <h2>💳 Pago con tarjeta</h2>
+
+            <p>
+                Estás a un paso de confirmar tu pedido.
+            </p>
+
+            <h2 id="total-pago">Total: S/ 0.00</h2>
+
+            <form id="formulario-pago">
+
+                <p>Selecciona el tipo de tarjeta:</p>
+
+                <label>
+                    <input type="radio"
+                           name="tipo-tarjeta"
+                           value="Débito" checked>
+                    Tarjeta de débito
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="tipo-tarjeta"
+                           value="Crédito">
+                    Tarjeta de crédito
+                </label>
+  
+<div class="datos-tarjeta">
+    <h3>💳 Datos de tarjeta de prueba</h3>
+
+    <p class="aviso-pago">
+        Solo demostración. No ingreses datos
+        de tarjetas bancarias reales.
+    </p>
+
+    <label for="numero-tarjeta">
+        Número de tarjeta ficticia:
+    </label>
+    <input
+        type="text"
+        id="numero-tarjeta"
+        placeholder="0000 0000 0000 0000"
+        inputmode="numeric"
+        maxlength="19"
+        pattern="0000 0000 0000 0000"
+        title="Para esta demostración escribe 0000 0000 0000 0000"
+        required
+        autocomplete="off"
+    >
+
+    <label for="nombre-tarjeta">
+        Nombre del titular ficticio:
+    </label>
+    <input
+        type="text"
+        id="nombre-tarjeta"
+        placeholder="CLIENTE DEMO"
+        required
+        autocomplete="off"
+    >
+</div>
+
+                <p>
+                    No ingreses datos bancarios reales.
+                    Este pago es únicamente una simulación.
+                </p>
+
+                <button type="submit"
+                        class="boton-finalizar">
+                    ✅ Confirmar pago de prueba
+                </button>
+
+            </form>
+
+        </section>
+    </main>
+
+    
+<script src="carrito.js"></script>
+<script src="inventario.js"></script>
+<script src="pago.js"></script>
+
+</body>
+</html>

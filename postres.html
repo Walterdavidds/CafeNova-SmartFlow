@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postres - CaféNova</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="pagina-postres">
+
+    <header>
+        <h1>☕ CaféNova SmartFlow</h1>
+        <p>Un dulce momento para acompañar tu café</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+        <a href="inventario.html">📦 Inventario</a>
+    </nav>
+
+    <main>
+        <h2>🍰 Nuestros postres</h2>
+        <p>
+            Disfruta de nuestros deliciosos postres,
+            perfectos para acompañar tu bebida favorita.
+        </p>
+
+        <section class="catalogo-productos">
+
+            <!-- 1. Torta de chocolate -->
+            <div class="producto">
+                <h3>🍫 Torta de chocolate</h3>
+                <img src="imagenes/postres/torta de chocolate.jpg"
+     alt="Torta de chocolate">
+                <p>Suave torta de chocolate con una deliciosa cobertura cremosa.</p>
+                <h4>Precio: S/ 9.00</h4>
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Torta de chocolate', 9.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 2. Cheesecake de fresa -->
+            <div class="producto">
+                <h3>🍓 Cheesecake de fresa</h3>
+                <img src="imagenes/postres/Cheesecake de fresa.jpg"
+     alt="Cheesecake de fresa">
+                <p>Postre cremoso de queso con una dulce cobertura de fresas.</p>
+                <h4>Precio: S/ 11.00</h4>
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Cheesecake de fresa', 11.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 3. Brownie -->
+            <div class="producto">
+                <h3>🍫 Brownie de chocolate</h3>
+                <img src="imagenes/postres/Brownie de chocolate.jpg"
+     alt="Brownie de chocolate">
+                <p>Brownie de chocolate intenso, suave por dentro y delicioso.</p>
+                <h4>Precio: S/ 7.00</h4>
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Brownie de chocolate', 7.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 4. Tiramisú -->
+            <div class="producto">
+                <h3>☕ Tiramisú</h3>
+                <img src="imagenes/postres/Tiramisú.jpg"
+     alt="Tiramisú">
+                <p>Postre italiano con crema suave, café y un toque de cacao.</p>
+                <h4>Precio: S/ 12.00</h4>
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Tiramisú', 12.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 5. Alfajor -->
+            <div class="producto">
+                <h3>🍪 Alfajor</h3>
+                <img src="imagenes/postres/Alfajor.jpg"
+     alt="Alfajor">
+                <p>Deliciosas galletas suaves rellenas con manjar blanco.</p>
+                <h4>Precio: S/ 5.00</h4>
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Alfajor', 5.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 6. Pie de limón -->
+            <div class="producto">
+                <h3>🍋 Pie de limón</h3>
+                <img src="imagenes/postres/Pie de limón.jpg"
+     alt="Pie de limón">
+                <p>Base crujiente con crema de limón y una capa de merengue.</p>
+                <h4>Precio: S/ 9.00</h4>
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Pie de limón', 9.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+        </section>
+
+        <a href="pedidos.html" class="boton-productos">
+            🛒 Ver mi carrito y continuar
+        </a>
+    </main>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebidas frías - CaféNova</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="pagina-bebidas">
+
+    <header>
+        <h1>☕ CaféNova SmartFlow</h1>
+        <p>Disfruta de nuestras bebidas favoritas</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+        <a href="inventario.html">📦 Inventario</a>
+    </nav>
+
+    <main>
+        <h2>🥤 Bebidas frías</h2>
+        <p>
+            Descubre nuestras 15 bebidas refrescantes,
+            preparadas para disfrutar en cualquier momento.
+        </p>
+
+        <section class="catalogo-productos">
+            <!-- 1. Frappé de café --> 
+             <div class="producto">
+    <h3>☕ Frappé de café</h3>
+    <img src="imagenes/bebidas/frappe-cafe.jpg" alt="Frappé de café">
+    <p>Bebida helada de café con leche y hielo triturado.</p>
+    <h4>Precio: S/ 12.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Frappé de café', 12.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+<!-- 2. Frappé de chocolate -->
+ <div class="producto">
+    <h3>🍫 Frappé de chocolate</h3>
+    <img src="imagenes/bebidas/frappe-chocolate.jpg" alt="Frappé de chocolate">
+    <p>Deliciosa combinación de chocolate, leche y hielo.</p>
+    <h4>Precio: S/ 13.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Frappé de chocolate', 13.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 3. Frappé de vainilla -->
+<div class="producto">
+    <h3>🍦 Frappé de vainilla</h3>
+    <img src="imagenes/bebidas/frappe-vainilla.jpg" alt="Frappé de vainilla">
+    <p>Bebida cremosa y helada con suave sabor a vainilla.</p>
+    <h4>Precio: S/ 12.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Frappé de vainilla', 12.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 4. Frappé de caramelo -->
+<div class="producto">
+    <h3>🍮 Frappé de caramelo</h3>
+    <img src="imagenes/bebidas/frappe-caramelo.jpg" alt="Frappé de caramelo">
+    <p>Frappé cremoso acompañado de dulce caramelo.</p>
+    <h4>Precio: S/ 14.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Frappé de caramelo', 14.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 5. Café americano helado -->
+<div class="producto">
+    <h3>🧊 Café americano helado</h3>
+    <img src="imagenes/bebidas/americano-helado.jpg" alt="Café americano helado">
+    <p>Espresso refrescante combinado con agua y hielo.</p>
+    <h4>Precio: S/ 8.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Café americano helado', 8.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 6. Latte helado -->
+<div class="producto">
+    <h3>🥛 Latte helado</h3>
+    <img src="imagenes/bebidas/latte-helado.jpg" alt="Latte helado">
+    <p>Espresso con leche fría y cubos de hielo.</p>
+    <h4>Precio: S/ 11.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Latte helado', 11.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 7. Mocaccino helado -->
+<div class="producto">
+    <h3>🍫 Mocaccino helado</h3>
+    <img src="imagenes/bebidas/mocaccino-helado.jpg" alt="Mocaccino helado">
+    <p>Café frío con leche y un delicioso toque de chocolate.</p>
+    <h4>Precio: S/ 12.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Mocaccino helado', 12.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 8. Té helado de durazno -->
+<div class="producto">
+    <h3>🍑 Té helado de durazno</h3>
+    <img src="imagenes/bebidas/te-durazno.jpg" alt="Té helado de durazno">
+    <p>Té frío con un agradable sabor a durazno.</p>
+    <h4>Precio: S/ 7.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Té helado de durazno', 7.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 9. Limonada clásica -->
+<div class="producto">
+    <h3>🍋 Limonada clásica</h3>
+    <img src="imagenes/bebidas/limonada.jpg" alt="Limonada clásica">
+    <p>Limonada fresca preparada con limón natural.</p>
+    <h4>Precio: S/ 6.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Limonada clásica', 6.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 10. Limonada de fresa -->
+<div class="producto">
+    <h3>🍓 Limonada de fresa</h3>
+    <img src="imagenes/bebidas/limonada-fresa.jpg" alt="Limonada de fresa">
+    <p>Refrescante limonada combinada con fresas.</p>
+    <h4>Precio: S/ 8.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Limonada de fresa', 8.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 11. Smoothie de fresa -->
+<div class="producto">
+    <h3>🍓 Smoothie de fresa</h3>
+    <img src="imagenes/bebidas/smoothie-fresa.jpg" alt="Smoothie de fresa">
+    <p>Bebida cremosa elaborada con fresas y leche fría.</p>
+    <h4>Precio: S/ 11.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Smoothie de fresa', 11.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 12. Smoothie de mango -->
+<div class="producto">
+    <h3>🥭 Smoothie de mango</h3>
+    <img src="imagenes/bebidas/smoothie-mango.jpg" alt="Smoothie de mango">
+    <p>Batido refrescante con el sabor tropical del mango.</p>
+    <h4>Precio: S/ 11.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Smoothie de mango', 11.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 13. Milkshake de chocolate -->
+<div class="producto">
+    <h3>🍫 Milkshake de chocolate</h3>
+    <img src="imagenes/bebidas/milkshake-chocolate.jpg" alt="Milkshake de chocolate">
+    <p>Batido espeso de leche y helado de chocolate.</p>
+    <h4>Precio: S/ 13.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Milkshake de chocolate', 13.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 14. Milkshake de vainilla -->
+<div class="producto">
+    <h3>🍦 Milkshake de vainilla</h3>
+    <img src="imagenes/bebidas/milkshake-vainilla.jpg" alt="Milkshake de vainilla">
+    <p>Batido cremoso con leche y helado de vainilla.</p>
+    <h4>Precio: S/ 12.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Milkshake de vainilla', 12.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+<!-- 15. Jugo de naranja -->
+<div class="producto">
+    <h3>🍊 Jugo de naranja</h3>
+    <img src="imagenes/bebidas/jugo-naranja.jpg" alt="Jugo de naranja">
+    <p>Jugo refrescante preparado con naranjas.</p>
+    <h4>Precio: S/ 8.00</h4>
+    <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Jugo de naranja', 8.00)">
+        🛒 Agregar al pedido
+    </button>
+</div>
+
+        </section>
+
+        <a href="pedidos.html" class="boton-productos">
+            🛒 Ver mi carrito y continuar
+        </a>
+    </main>
+
+    <script src="carrito.js"></script>
+
+</body>
+</html>

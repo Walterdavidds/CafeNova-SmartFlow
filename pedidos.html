@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis pedidos - CaféNova</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>☕ CaféNova</h1>
+        <p>SmartFlow - Mi carrito de compras</p>
+    </header>
+
+    <nav class="menu-principal">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+        <a href="inventario.html">📦 Inventario</a>
+    </nav>
+
+    <main>
+        <h2>🛒 Mi carrito de compras</h2>
+
+        <p>
+            Revisa los productos que seleccionaste,
+            sus cantidades y el total de tu compra.
+        </p>
+
+        <section id="lista-carrito"></section>
+
+        <h2 id="total-carrito">Total: S/ 0.00</h2>
+
+        <a href="productos.html" class="boton-productos">
+            ☕ Seguir comprando
+        </a>
+        
+<section class="finalizar-compra">
+
+    <h2>💳 Finalizar mi compra</h2>
+
+    <p>
+        Revisa tu pedido y continúa con el pago
+        mediante tarjeta de crédito o débito.
+    </p>
+
+    <p class="aviso-pago">
+        Modo demostración: no se realizarán
+        cobros reales ni se solicitarán
+        datos bancarios.
+    </p>
+
+    <button type="button"
+            id="boton-finalizar"
+            class="boton-finalizar">
+        💳 Finalizar compra
+    </button>
+
+</section>
+
+    </main>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

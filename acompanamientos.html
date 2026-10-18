@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Acompañamientos - CaféNova</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="pagina-acompanamientos">
+
+    <header>
+        <h1>☕ CaféNova SmartFlow</h1>
+        <p>El complemento perfecto para tu bebida</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+        <a href="inventario.html">📦 Inventario</a>
+    </nav>
+
+    <main>
+        <h2>🥐 Nuestros acompañamientos</h2>
+        <p>
+            Descubre nuestros 6 acompañamientos,
+            ideales para disfrutar con tu café favorito.
+        </p>
+
+        <section class="catalogo-productos">
+
+            <!-- 1. Croissant de mantequilla -->
+            <div class="producto">
+                <h3>🥐 Croissant de mantequilla</h3>
+                <img src="imagenes/acompanamientos/Croissant de mantequilla.jpg"
+     alt="Croissant de mantequilla">
+                <p>Delicioso croissant dorado, crujiente por fuera y suave por dentro.</p>
+                <h4>Precio: S/ 6.00</h4>
+
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Croissant de mantequilla', 6.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 2. Croissant de jamón y queso -->
+            <div class="producto">
+                <h3>🥪 Croissant de jamón y queso</h3>
+                <img src="imagenes/acompanamientos/Croissant de jamón y queso.jpg"
+     alt="Croissant de jamón y queso">
+                <p>Croissant recién preparado con jamón y queso derretido.</p>
+                <h4>Precio: S/ 9.00</h4>
+
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Croissant de jamón y queso', 9.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 3. Sándwich mixto -->
+            <div class="producto">
+                <h3>🥪 Sándwich mixto</h3>
+                <img src="imagenes/acompanamientos/Sándwich mixto.jpg"
+     alt="Sándwich mixto">
+                <p>Pan tostado relleno de jamón y queso, preparado al momento.</p>
+                <h4>Precio: S/ 10.00</h4>
+
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Sándwich mixto', 10.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 4. Empanada de pollo -->
+            <div class="producto">
+                <h3>🥟 Empanada de pollo</h3>
+                <img src="imagenes/acompanamientos/Empanada de pollo.jpg"
+     alt="Empanada de pollo">
+                <p>Empanada horneada con un delicioso relleno de pollo sazonado.</p>
+                <h4>Precio: S/ 7.00</h4>
+
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Empanada de pollo', 7.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 5. Pan con pollo -->
+            <div class="producto">
+                <h3>🍗 Pan con pollo</h3>
+                <img src="imagenes/acompanamientos/Pan con pollo.jpg"
+     alt="Pan con pollo">
+                <p>Pan fresco relleno de pollo deshilachado y una deliciosa salsa.</p>
+                <h4>Precio: S/ 9.00</h4>
+
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Pan con pollo', 9.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+            <!-- 6. Tostadas con palta -->
+            <div class="producto">
+                <h3>🥑 Tostadas con palta</h3>
+                <img src="imagenes/acompanamientos/Tostadas con palta.jpg"
+     alt="Tostadas con palta">
+                <p>Tostadas crujientes acompañadas de palta fresca.</p>
+                <h4>Precio: S/ 10.00</h4>
+
+                <button type="button" class="boton-agregar"
+                    onclick="agregarAlCarrito('Tostadas con palta', 10.00)">
+                    🛒 Agregar al pedido
+                </button>
+            </div>
+
+        </section>
+
+        <a href="pedidos.html" class="boton-productos">
+            🛒 Ver mi carrito y continuar
+        </a>
+
+    </main>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

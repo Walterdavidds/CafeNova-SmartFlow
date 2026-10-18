@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - CaféNova SmartFlow</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        .inventario-panel {
+            background: #fffaf6;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px #00000010;
+            text-align: left;
+        }
+
+        .inventario-panel h2 {
+            color: #5d4037;
+            margin-top: 0;
+        }
+
+        .resumen-inventario {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(180px, 1fr)
+            );
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .indicador-inventario {
+            background: #f2e2d1;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .indicador-inventario strong {
+            display: block;
+            font-size: 32px;
+            color: #5d4037;
+            margin-top: 8px;
+        }
+
+        .tabla-desplazable {
+            overflow-x: auto;
+        }
+
+        .tabla-inventario {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 650px;
+        }
+
+        .tabla-inventario th,
+        .tabla-inventario td {
+            padding: 13px;
+            border-bottom: 1px solid #e7d9cb;
+            text-align: left;
+        }
+
+        .tabla-inventario th {
+            background: #795548;
+            color: white;
+        }
+
+        .tabla-inventario tr:nth-child(even) {
+            background: #f8f0e8;
+        }
+
+        .stock-bajo {
+            color: #b16b00;
+            font-weight: bold;
+        }
+
+        .stock-agotado {
+            color: #b42318;
+            font-weight: bold;
+        }
+
+        .stock-normal {
+            color: #237445;
+            font-weight: bold;
+        }
+
+        .alerta-inventario {
+            background: #fff2d6;
+            border-left: 5px solid #dd9c23;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .formulario-reposicion {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(200px, 1fr)
+            );
+            gap: 15px;
+            align-items: end;
+        }
+
+        .campo-inventario label {
+            display: block;
+            color: #5d4037;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .campo-inventario select,
+        .campo-inventario input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dbc9b8;
+            border-radius: 10px;
+            background: white;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .boton-inventario {
+            background: #795548;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 13px 18px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .boton-inventario:hover {
+            background: #4e342e;
+        }
+
+        .boton-recibir {
+            background: #287849;
+        }
+
+        .boton-recibir:hover {
+            background: #1d5936;
+        }
+
+        .pedido-proveedor {
+            background: #f5e9de;
+            padding: 17px;
+            border-radius: 12px;
+            margin: 12px 0;
+        }
+
+        .pedido-proveedor p {
+            margin: 7px 0;
+        }
+
+        .pedido-proveedor button {
+            margin: 8px 8px 0 0;
+        }
+
+        .mensaje-vacio {
+            color: #78665b;
+        }
+
+        .nota-inventario {
+            font-size: 14px;
+            color: #806a59;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>☕ CaféNova SmartFlow</h1>
+        <p>📦 Control de inventario e ingredientes</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+        <a href="inventario.html">📦 Inventario</a>
+    </nav>
+
+    <main>
+        <h2>📦 Gestión de Inventario</h2>
+        <p>
+            Controla los ingredientes, revisa el stock
+            disponible y solicita reposiciones.
+        </p>
+
+        <section class="resumen-inventario">
+
+            <div class="indicador-inventario">
+                <span>📋 Ingredientes registrados</span>
+                <strong id="total-ingredientes">0</strong>
+            </div>
+
+            <div class="indicador-inventario">
+                <span>✅ Disponibles</span>
+                <strong id="total-disponibles">0</strong>
+            </div>
+
+            <div class="indicador-inventario">
+                <span>⚠️ Stock bajo</span>
+                <strong id="total-bajos">0</strong>
+            </div>
+
+            <div class="indicador-inventario">
+                <span>🚨 Agotados</span>
+                <strong id="total-agotados">0</strong>
+            </div>
+
+        </section>
+
+        <section class="inventario-panel">
+            <h2>📋 Existencias disponibles</h2>
+
+            <div class="tabla-desplazable">
+                <table class="tabla-inventario">
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Cantidad</th>
+                            <th>Unidad</th>
+                            <th>Mínimo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabla-stock">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="inventario-panel">
+            <h2>⚠️ Alertas de inventario</h2>
+            <div id="alertas-stock"></div>
+        </section>
+
+        <section class="inventario-panel">
+            <h2>🚚 Pedir más ingredientes</h2>
+
+            <p>
+                Selecciona un ingrediente y registra
+                la cantidad que deseas solicitar.
+            </p>
+
+            <form id="formulario-reposicion"
+                  class="formulario-reposicion">
+
+                <div class="campo-inventario">
+                    <label for="ingrediente-reponer">
+                        Ingrediente
+                    </label>
+                    <select id="ingrediente-reponer" required>
+                    </select>
+                </div>
+
+                <div class="campo-inventario">
+                    <label for="cantidad-reponer">
+                        Cantidad a solicitar
+                    </label>
+                    <input type="number"
+                           id="cantidad-reponer"
+                           min="1"
+                           step="1"
+                           placeholder="Ejemplo: 500"
+                           required>
+                </div>
+
+                <button type="submit"
+                        class="boton-inventario">
+                    🚚 Pedir más
+                </button>
+            </form>
+
+            <p class="nota-inventario">
+                La solicitud es una simulación.
+                El stock aumentará cuando registres
+                la recepción de los ingredientes.
+            </p>
+        </section>
+
+        <section class="inventario-panel">
+            <h2>📥 Solicitudes de reposición</h2>
+            <div id="lista-reposiciones"></div>
+        </section>
+
+    </main>
+
+    <script src="inventario.js"></script>
+</body>
+</html>

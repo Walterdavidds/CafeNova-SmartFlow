@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafés calientes - CaféNova</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="pagina-cafes">
+
+    <header>
+        <h1>☕ CaféNova</h1>
+        <p>SmartFlow - Nuestros cafés calientes</p>
+    </header>
+
+    <nav class="menu-principal">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+        <a href="inventario.html">📦 Inventario</a>
+    </nav>
+
+    <main>
+        <h2>☕ Cafés calientes</h2>
+        <p>
+            Descubre nuestros 15 tipos de cafés,
+            preparados para disfrutar de su aroma y sabor.
+        </p>
+
+    </main>
+
+<section class="catalogo-productos">
+
+    <div class="producto">
+        <h3>☕ Café americano</h3>
+        <img src="imagenes/cafes/americano.jpg" alt="Café americano">
+        <p>Espresso combinado con agua caliente, de sabor suave y aromático.</p>
+        <h4>Precio: S/ 5.00</h4>
+        
+<button type="button"
+        class="boton-agregar"
+        onclick="agregarAlCarrito('Café americano', 5.00)">
+    🛒 Agregar al pedido
+</button>
+
+    </div>
+
+    <div class="producto">
+        <h3>☕ Capuchino</h3>
+        <img src="imagenes/cafes/capuchino.jpg" alt="Capuchino">
+        <p>Espresso con leche vaporizada y una deliciosa capa de espuma.</p>
+        <h4>Precio: S/ 8.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Capuchino', 8.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Espresso</h3>
+        <img src="imagenes/cafes/espresso.jpg" alt="Espresso">
+        <p>Café concentrado de sabor intenso y aroma profundo.</p>
+        <h4>Precio: S/ 6.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Espresso', 6.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Latte</h3>
+        <img src="imagenes/cafes/latte.jpg" alt="Latte">
+        <p>Espresso combinado con abundante leche caliente y suave espuma.</p>
+        <h4>Precio: S/ 9.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Latte', 9.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>🍫 Mocaccino</h3>
+        <img src="imagenes/cafes/mocaccino.jpg" alt="Mocaccino">
+        <p>Deliciosa combinación de café espresso, leche y chocolate.</p>
+        <h4>Precio: S/ 10.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Mocaccino', 10.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Flat White</h3>
+        <img src="imagenes/cafes/flat-white.jpg" alt="Flat White">
+        <p>Espresso con leche vaporizada de textura fina y cremosa.</p>
+        <h4>Precio: S/ 10.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Flat White', 10.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Macchiato</h3>
+        <img src="imagenes/cafes/macchiato.jpg" alt="Macchiato">
+        <p>Espresso intenso acompañado de un toque de espuma de leche.</p>
+        <h4>Precio: S/ 7.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Macchiato', 7.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Cortado</h3>
+        <img src="imagenes/cafes/cortado.jpg" alt="Cortado">
+        <p>Espresso equilibrado con una pequeña cantidad de leche caliente.</p>
+        <h4>Precio: S/ 7.50</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Cortado', 7.50)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Ristretto</h3>
+        <img src="imagenes/cafes/ristretto.jpg" alt="Ristretto">
+        <p>Una extracción corta de espresso con sabor intenso y concentrado.</p>
+        <h4>Precio: S/ 6.50</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Ristretto', 6.50)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Lungo</h3>
+        <img src="imagenes/cafes/lungo.jpg" alt="Lungo">
+        <p>Espresso preparado con una extracción más larga y mayor cantidad de agua.</p>
+        <h4>Precio: S/ 7.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Lungo', 7.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>🍮 Caramel Macchiato</h3>
+        <img src="imagenes/cafes/caramel-macchiato.jpg" alt="Caramel Macchiato">
+        <p>Café con leche, vainilla y una deliciosa cobertura de caramelo.</p>
+        <h4>Precio: S/ 11.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Caramel Macchiato', 11.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Latte de vainilla</h3>
+        <img src="imagenes/cafes/latte-vainilla.jpg" alt="Latte de vainilla">
+        <p>Cremoso café latte aromatizado con un delicado toque de vainilla.</p>
+        <h4>Precio: S/ 11.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Latte de vainilla', 11.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>🍨 Affogato</h3>
+        <img src="imagenes/cafes/affogato.jpg" alt="Affogato">
+        <p>Helado de vainilla acompañado de una porción de espresso caliente.</p>
+        <h4>Precio: S/ 12.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Affogato', 12.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Café bombón</h3>
+        <img src="imagenes/cafes/cafe-bombon.jpg" alt="Café bombón">
+        <p>Espresso con leche condensada, ideal para quienes prefieren un sabor dulce.</p>
+        <h4>Precio: S/ 9.50</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Café bombón', 9.50)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+    <div class="producto">
+        <h3>☕ Doppio</h3>
+        <img src="imagenes/cafes/doppio.jpg" alt="Doppio">
+        <p>Doble porción de espresso, perfecta para los amantes del café intenso.</p>
+        <h4>Precio: S/ 9.00</h4>
+        <button type="button" class="boton-agregar"
+        onclick="agregarAlCarrito('Doppio', 9.00)">
+        🛒 Agregar al pedido
+    </button>
+    </div>
+
+</section>
+
+<script src="carrito.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocina - CaféNova SmartFlow</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        .panel-cocina {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 30px;
+            background: #fffaf6;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 6px 20px #00000012;
+        }
+
+        .resumen-tiempo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .cuadro-resumen {
+            background: #f3e5d7;
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+        .cuadro-resumen h2 {
+            font-size: 38px;
+            margin: 12px 0;
+            color: #5d4037;
+        }
+
+        .cuadro-oscuro {
+            background: #5d4037;
+            color: white;
+        }
+
+        .cuadro-oscuro h2 {
+            color: white;
+        }
+
+        .lista-preparacion {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(260px, 1fr)
+            );
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tarjeta-preparacion {
+            background: #f7ebdf;
+            padding: 25px;
+            border-radius: 17px;
+            text-align: left;
+        }
+
+        .tarjeta-preparacion h3 {
+            color: #5d4037;
+            margin-top: 0;
+        }
+
+        .tiempo-individual {
+            font-size: 28px;
+            color: #795548;
+            font-weight: bold;
+            margin: 12px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .barra-cocina {
+            height: 13px;
+            background: #e1cebb;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .avance-cocina {
+            height: 100%;
+            width: 0%;
+            background: #68a875;
+            transition: width 1s linear;
+        }
+
+        .estado-producto {
+            font-weight: bold;
+            color: #795548;
+        }
+
+        .reloj-general {
+            background: #5d4037;
+            color: white;
+            border-radius: 20px;
+            padding: 28px;
+            margin-top: 25px;
+        }
+
+        .reloj-general h2 {
+            color: white;
+            font-size: 48px;
+            margin: 12px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .mensaje-cocina {
+            color: #5d4037;
+            font-weight: bold;
+            font-size: 22px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .resumen-tiempo {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-cocina {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>☕ CaféNova SmartFlow</h1>
+        <p>👨‍🍳 Preparación de pedidos</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="productos.html">☕ Productos</a>
+        <a href="pedidos.html">🛒 Pedidos</a>
+        <a href="cocina.html">👨‍🍳 Cocina</a>
+    </nav>
+
+    <main>
+        <section class="panel-cocina">
+
+            <div id="sin-pedido" hidden>
+                <h2>🍽️ No hay pedidos en preparación</h2>
+                <p>
+                    Realiza un pedido para verlo aquí.
+                </p>
+                <a href="productos.html" class="boton-productos">
+                    ☕ Ver productos
+                </a>
+            </div>
+
+            <div id="contenido-cocina" hidden>
+
+                <h2>👨‍🍳 Preparando tu pedido</h2>
+
+                <p class="mensaje-cocina"
+                   id="estado-general">
+                    ⏳ Pedido en preparación
+                </p>
+
+                <div class="resumen-tiempo">
+
+                    <div class="cuadro-resumen">
+                        <p>📦 Productos pedidos</p>
+                        <h2 id="cantidad-total">0</h2>
+                    </div>
+
+                    <div class="cuadro-resumen cuadro-oscuro">
+                        <p>⏱️ Tiempo total de preparación</p>
+                        <h2 id="tiempo-inicial">00:00</h2>
+                    </div>
+
+                </div>
+
+                <h2>🍽️ Detalle de preparación</h2>
+
+                <div class="lista-preparacion"
+                     id="lista-preparacion">
+                </div>
+
+                <div class="reloj-general">
+                    <p>⏳ Tiempo restante del pedido</p>
+                    <h2 id="cronometro-general">00:00</h2>
+                </div>
+
+                <div class="barra-cocina">
+                    <div class="avance-cocina"
+                         id="avance-general"></div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // Minutos de preparación por unidad
+        const tiemposPreparacion = {
+            // Cafés calientes
+            "Café americano": 3,
+            "Capuchino": 5,
+            "Espresso": 2,
+            "Latte": 5,
+            "Mocaccino": 6,
+            "Flat White": 5,
+            "Macchiato": 3,
+            "Cortado": 3,
+            "Ristretto": 2,
+            "Lungo": 3,
+            "Caramel Macchiato": 6,
+            "Latte de vainilla": 6,
+            "Affogato": 5,
+            "Café bombón": 4,
+            "Doppio": 3,
+
+            // Bebidas frías
+            "Frappé de café": 6,
+            "Frappé de chocolate": 7,
+            "Frappé de vainilla": 6,
+            "Frappé de caramelo": 7,
+            "Café americano helado": 4,
+            "Latte helado": 5,
+            "Mocaccino helado": 6,
+            "Té helado de durazno": 3,
+            "Limonada clásica": 3,
+            "Limonada de fresa": 4,
+            "Smoothie de fresa": 5,
+            "Smoothie de mango": 5,
+            "Milkshake de chocolate": 6,
+            "Milkshake de vainilla": 6,
+            "Jugo de naranja": 4,
+
+            // Postres
+            "Torta de chocolate": 2,
+            "Cheesecake de fresa": 2,
+            "Brownie de chocolate": 2,
+            "Tiramisú": 2,
+            "Alfajor": 1,
+            "Pie de limón": 2,
+
+            // Acompañamientos
+            "Croissant de mantequilla": 3,
+            "Croissant de jamón y queso": 5,
+            "Sándwich mixto": 6,
+            "Empanada de pollo": 5,
+            "Pan con pollo": 6,
+            "Tostadas con palta": 5
+        };
+
+        function formatearTiempo(segundos) {
+            segundos = Math.max(0, Math.ceil(segundos));
+
+            const horas = Math.floor(segundos / 3600);
+            const minutos = Math.floor(
+                (segundos % 3600) / 60
+            );
+            const resto = segundos % 60;
+
+            const dosDigitos = valor =>
+                String(valor).padStart(2, "0");
+
+            if (horas > 0) {
+                return dosDigitos(horas) + ":" +
+                       dosDigitos(minutos) + ":" +
+                       dosDigitos(resto);
+            }
+
+            return dosDigitos(minutos) + ":" +
+                   dosDigitos(resto);
+        }
+
+        function cargarCocina() {
+            let pedidos = [];
+
+            try {
+                pedidos = JSON.parse(
+                    localStorage.getItem("cafenova_pedidos")
+                ) || [];
+            } catch (error) {
+                pedidos = [];
+            }
+
+            const ultimoId = localStorage.getItem(
+                "cafenova_ultimo_pedido"
+            );
+
+            const pedido = pedidos.find(
+                elemento => elemento.id === ultimoId
+            );
+
+            if (!pedido || !Array.isArray(pedido.productos) ||
+                pedido.productos.length === 0) {
+                document.getElementById(
+                    "sin-pedido"
+                ).hidden = false;
+
+                return;
+            }
+
+            document.getElementById(
+                "contenido-cocina"
+            ).hidden = false;
+
+            const lista = document.getElementById(
+                "lista-preparacion"
+            );
+
+            let cantidadTotal = 0;
+            let tiempoTotal = 0;
+
+            const preparaciones = [];
+
+            // Crear un registro por producto
+            pedido.productos.forEach(producto => {
+                const cantidad = Math.max(
+                    0,
+                    Number(producto.cantidad) || 0
+                );
+
+                const tiempoUnidad =
+                    tiemposPreparacion[producto.nombre] ?? 5;
+
+                const duracion = tiempoUnidad * cantidad * 60;
+
+                const inicio = tiempoTotal;
+
+                tiempoTotal += duracion;
+                cantidadTotal += cantidad;
+
+                const tarjeta = document.createElement("div");
+                tarjeta.className = "tarjeta-preparacion";
+
+                const nombre = document.createElement("h3");
+                nombre.textContent = "🍽️ " + producto.nombre;
+
+                const textoCantidad = document.createElement("p");
+                textoCantidad.textContent =
+                    "Cantidad: " + cantidad;
+
+                const textoTiempo = document.createElement("p");
+                textoTiempo.textContent =
+                    "Preparación: " + tiempoUnidad +
+                    " min por unidad × " + cantidad;
+
+                const reloj = document.createElement("div");
+                reloj.className = "tiempo-individual";
+                reloj.textContent = formatearTiempo(duracion);
+
+                const estado = document.createElement("p");
+                estado.className = "estado-producto";
+                estado.textContent = "⏳ En espera";
+
+                const barra = document.createElement("div");
+                barra.className = "barra-cocina";
+
+                const avance = document.createElement("div");
+                avance.className = "avance-cocina";
+                barra.appendChild(avance);
+
+                tarjeta.append(
+                    nombre,
+                    textoCantidad,
+                    textoTiempo,
+                    reloj,
+                    estado,
+                    barra
+                );
+
+                lista.appendChild(tarjeta);
+
+                preparaciones.push({
+                    inicio: inicio,
+                    duracion: duracion,
+                    reloj: reloj,
+                    estado: estado,
+                    avance: avance
+                });
+            });
+
+            document.getElementById(
+                "cantidad-total"
+            ).textContent = cantidadTotal;
+
+            document.getElementById(
+                "tiempo-inicial"
+            ).textContent = formatearTiempo(tiempoTotal);
+
+            const cronometroGeneral =
+                document.getElementById("cronometro-general");
+
+            const avanceGeneral =
+                document.getElementById("avance-general");
+
+            const estadoGeneral =
+                document.getElementById("estado-general");
+
+            // Usar la hora real de confirmación
+            const fechaInicio = new Date(
+                pedido.fecha
+            ).getTime();
+
+            const inicioReal = Number.isFinite(fechaInicio)
+                ? fechaInicio
+                : Date.now();
+
+            let intervalo = null;
+
+            function actualizarRelojes() {
+                const transcurrido = Math.max(
+                    0,
+                    Math.floor(
+                        (Date.now() - inicioReal) / 1000
+                    )
+                );
+
+                const restanteGeneral = Math.max(
+                    0,
+                    tiempoTotal - transcurrido
+                );
+
+                cronometroGeneral.textContent =
+                    formatearTiempo(restanteGeneral);
+
+                // Actualizar el cronómetro de cada producto
+                preparaciones.forEach(item => {
+                    const transcurridoProducto =
+                        Math.max(
+                            0,
+                            transcurrido - item.inicio
+                        );
+
+                    const restanteProducto =
+                        Math.max(
+                            0,
+                            item.duracion - transcurridoProducto
+                        );
+
+                    item.reloj.textContent =
+                        formatearTiempo(restanteProducto);
+
+                    let porcentaje = 100;
+
+                    if (item.duracion > 0) {
+                        porcentaje = Math.min(
+                            100,
+                            transcurridoProducto /
+                            item.duracion * 100
+                        );
+                    }
+
+                    item.avance.style.width =
+                        porcentaje + "%";
+
+                    if (transcurrido < item.inicio) {
+                        item.estado.textContent = "⏳ En espera";
+                    } else if (restanteProducto > 0) {
+                        item.estado.textContent =
+                            "👨‍🍳 En preparación";
+                    } else {
+                        item.estado.textContent =
+                            "✅ Preparación terminada";
+                    }
+                });
+
+                const porcentajeGeneral = tiempoTotal > 0
+                    ? Math.min(
+                        100,
+                        transcurrido / tiempoTotal * 100
+                    )
+                    : 100;
+
+                avanceGeneral.style.width =
+                    porcentajeGeneral + "%";
+
+                if (restanteGeneral === 0) {
+                    estadoGeneral.textContent =
+                        "✅ ¡Todos tus productos están listos!";
+
+                    clearInterval(intervalo);
+                } else {
+                    estadoGeneral.textContent =
+                        "👨‍🍳 Preparando tu pedido...";
+                }
+            }
+
+            actualizarRelojes();
+
+            if (tiempoTotal > 0) {
+                intervalo = setInterval(
+                    actualizarRelojes,
+                    1000
+                );
+            }
+        }
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            cargarCocina
+        );
+    </script>
+
+</body>
+</html>

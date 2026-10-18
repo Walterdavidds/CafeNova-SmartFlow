@@ -1,0 +1,379 @@
+
+/* =====================================
+   CAFÉNOVA SMARTFLOW - ESTILOS GENERALES
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f1e7;
+    color: #3e2723;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #4e342e;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0;
+    color: #f5d7a1;
+}
+
+header p {
+    font-size: 18px;
+    margin: 12px 0 0;
+    color: #f7e6d0;
+}
+
+/* MENÚ PRINCIPAL */
+
+.menu-principal {
+    background-color: #6d4c41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 16px;
+}
+
+.menu-principal a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.menu-principal a:hover {
+    background-color: #a1887f;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+main {
+    width: 95%;
+    max-width: 1300px;
+    margin: 35px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #6d4c41;
+    font-size: 30px;
+    margin: 35px 0 20px;
+}
+
+main p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* =====================================
+   CATÁLOGO DE PRODUCTOS
+===================================== */
+
+.catalogo-productos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin: 40px auto;
+}
+
+/* TARJETAS */
+
+.producto {
+    min-width: 0;
+    width: 100%;
+    background-color: #fffaf6;
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(93, 64, 55, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+}
+
+.producto h3 {
+    color: #5d4037;
+    font-size: 23px;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.producto p {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 100%;
+}
+
+.producto h4 {
+    color: #a06a32;
+    font-size: 20px;
+}
+
+
+/* Imágenes cuadradas de los productos */
+.producto img {
+    display: block;
+    width: 220px;
+    height: 220px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    margin: 20px auto;
+}
+
+
+/* =====================================
+   PÁGINA DE CAFÉS
+===================================== */
+
+body.pagina-cafes {
+    background-color: #f7dfce;
+}
+
+.pagina-cafes main {
+    width: 95%;
+    max-width: 1350px;
+}
+
+.pagina-cafes .catalogo-productos {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* =====================================
+   CATEGORÍAS DE PRODUCTOS
+===================================== */
+
+.categorias-productos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 35px auto;
+}
+
+.categoria {
+    background-color: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.categoria:hover {
+    transform: translateY(-6px);
+}
+
+.categoria h2 {
+    margin-top: 10px;
+}
+
+.categoria p {
+    margin-bottom: 20px;
+}
+
+/* =====================================
+   SECCIÓN DESCUBRIR MÁS PRODUCTOS
+===================================== */
+
+.descubrir-productos {
+    background-color: white;
+    border: 1px solid #e4d5c4;
+    border-radius: 18px;
+    padding: 35px 25px;
+    margin: 45px auto;
+    max-width: 850px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.descubrir-productos h2 {
+    color: #5d4037;
+    font-size: 27px;
+    margin: 10px 0;
+}
+
+.descubrir-productos p {
+    color: #6d4c41;
+    font-size: 17px;
+}
+
+/* BOTONES */
+
+.boton-productos {
+    display: inline-block;
+    background-color: #6d4c41;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.boton-productos:hover {
+    background-color: #4e342e;
+    transform: translateY(-4px);
+}
+
+/* =====================================
+   DISEÑO RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+    .catalogo-productos,
+    .pagina-cafes .catalogo-productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .catalogo-productos,
+    .pagina-cafes .catalogo-productos,
+    .categorias-productos {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-principal {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .menu-principal a {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    main {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Productos agregados al carrito */
+#lista-carrito {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 35px auto;
+}
+
+.producto-carrito {
+    background-color: #fffaf6;
+    border: 1px solid #e4d5c4;
+}
+
+#total-carrito {
+    background-color: #f1dfca;
+    border-radius: 15px;
+    padding: 22px;
+    margin-top: 30px;
+}
+
+/* Sección para finalizar la compra */
+.finalizar-compra {
+    background-color: #fffaf6;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 35px auto;
+    max-width: 750px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.finalizar-compra h2 {
+    color: #5d4037;
+}
+
+.finalizar-compra p {
+    color: #6d4c41;
+}
+
+.aviso-pago {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.boton-finalizar {
+    background-color: #795548;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 17px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-finalizar:hover {
+    background-color: #4e342e;
+    transform: scale(1.04);
+}
+
+/* Formulario de tarjeta de demostración */
+.datos-tarjeta {
+    background-color: #fffaf6;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px auto;
+    max-width: 450px;
+    text-align: left;
+}
+
+.datos-tarjeta label {
+    display: block;
+    font-weight: bold;
+    color: #5d4037;
+    margin: 15px 0 8px;
+}
+
+.datos-tarjeta input {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #d7c4b3;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.datos-tarjeta input:focus {
+    outline: none;
+    border-color: #795548;
+}
